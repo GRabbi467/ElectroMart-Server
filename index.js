@@ -42,8 +42,8 @@ async function run() {
     const allProducts =await DB.find({}).skip(page*size).limit(size).toArray();
     const productsbyEmail = await DB.find({email:req.query.email}).toArray();
     const count = await DB.estimatedDocumentCount();
-    const ProductsByCategory = await DB.find({category:req.query.category}).toArray();
-    res.send({allProducts,productsbyEmail,count,ProductsByCategory})
+   
+    res.send({allProducts,productsbyEmail,count})
    });
 
    
