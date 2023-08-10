@@ -47,40 +47,6 @@ async function run() {
     res.send({allProducts,productsbyEmail,count,searchRes})
    });
 
-  // app.get('/products', async (req, res) => {
-  //   try {
-  //     const page = parseInt(req.query.page);
-  //     const size = parseInt(req.query.size);
-  //     const search = req.query.search;
-  //     const email = req.query.email;
-  
-  //     // Creating a regular expression pattern for case-insensitive search
-  //     const query = { productName: new RegExp(search, 'i') };
-  
-  //     // Count total documents matching the search criteria
-  //     const count = await DB.countDocuments(query);
-  
-  //     // Fetch products based on the search criteria and pagination
-  //     const products = await DB.find(query)
-  //       .skip(page * size)
-  //       .limit(size)
-  //       .toArray();
-  
-  //     // Fetch products by email (assuming 'email' is a field in the collection)
-  //     const productsByEmail = await DB.find({ email }).toArray();
-  
-  //     res.json({
-  //       products,
-  //       productsByEmail,
-  //       totalCount: count,
-  //     });
-  //   } catch (error) {
-  //     console.error('Error:', error);
-  //     res.status(500).json({ error: 'Internal server error' });
-  //   }
-  // });
-  
-
    app.get('/products/:id',async(req,res)=>{
     const id = req.params.id;
     const query = {_id:new ObjectId(id)}
